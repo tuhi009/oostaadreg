@@ -16,3 +16,18 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// List Account Infos
+Route::get('accountinfos','AccountInfoController@index');
+
+// List Single Account Info
+Route::get('accountinfo/{id}','AccountInfoController@show');
+
+// Create new Account Info
+Route::post('accountinfo','AccountInfoController@store');
+
+//Update Account Info
+Route::put('accountinfo','AccountInfoController@store');
+
+//Delete Account Info
+Route::delete('accountinfo/{id}','AccountInfoController@destroy');
