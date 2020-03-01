@@ -31,3 +31,8 @@ Route::put('accountinfo','AccountInfoController@store');
 
 //Delete Account Info
 Route::delete('accountinfo/{id}','AccountInfoController@destroy');
+
+
+//Register New User
+Route::post('reg','RegistrationController@store');
+
