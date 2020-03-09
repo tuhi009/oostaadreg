@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 // List Account Infos
 Route::get('accountinfos','AccountInfoController@index');
@@ -34,5 +34,9 @@ Route::delete('accountinfo/{id}','AccountInfoController@destroy');
 
 
 //Register New User
-Route::post('reg','RegistrationController@store');
+Route::post('reg', 'RegistrationController@store');
+
+
+//List all Service Categories
+Route::get('service/categories', 'CategoryController@index');
 
