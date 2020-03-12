@@ -1,7 +1,7 @@
 <?php
 
 //header('Access-Control-Allow-Origin: *');
-header('access-control-allow-credentials: true');
+//header('access-control-allow-credentials: true');
 //header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 
 /**
