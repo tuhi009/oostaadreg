@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\AccountInfo;
 use App\Expert;
 use App\ServiceMap;
+use App\Workshop;
+use App\Client;
+use App\WorkshopServiceMap;
 use App\Http\Resources\AccountInfo as AccountInfoResource;
 
 class RegistrationController extends Controller
@@ -70,7 +73,17 @@ class RegistrationController extends Controller
 
         $lastid = $accountInfo->id;
 
-        if ($accountType == 2) {
+        if ($accountType == 1) {
+            $client = new Client;
+            $client->first_name = $firstName;
+            $client->last_name = $lastName;
+            $client->contact_number = $mobileNumber;
+            $client->account_info_id = $lastid;
+            $client->save();
+
+        }
+
+       else if ($accountType == 2) {
             $expert = new Expert;
             $expert->first_name = $firstName;
             $expert->last_name = $lastName;
@@ -91,6 +104,30 @@ class RegistrationController extends Controller
 
             }
         }
+
+       else{
+
+           $workshop = new Workshop;
+           $workshop->first_name = $firstName;
+           $workshop->last_name = $lastName;
+           $workshop->contact_number = $mobileNumber;
+           $workshop->account_info_id = $lastid;
+           $workshop->save();
+
+           $lastExpertId = $workshop -> id;
+
+           foreach ($serviceType as $key){
+               $map = new WorkshopServiceMap();
+
+               $map -> workshop_id = $lastExpertId;
+
+               $map -> service_category_id = $key;
+
+               $map->save();
+
+           }
+
+       }
 
 
     }

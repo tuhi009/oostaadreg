@@ -18,19 +18,19 @@ use Illuminate\Http\Request;
 //});
 
 // List Account Infos
-Route::get('accountinfos','AccountInfoController@index');
+Route::get('accountinfos', 'AccountInfoController@index');
 
 // List Single Account Info
-Route::get('accountinfo/{id}','AccountInfoController@show');
+Route::get('accountinfo/{id}', 'AccountInfoController@show');
 
 // Create new Account Info
-Route::post('accountinfo','AccountInfoController@store');
+Route::post('accountinfo', 'AccountInfoController@store');
 
 //Update Account Info
-Route::put('accountinfo','AccountInfoController@store');
+Route::put('accountinfo', 'AccountInfoController@store');
 
 //Delete Account Info
-Route::delete('accountinfo/{id}','AccountInfoController@destroy');
+Route::delete('accountinfo/{id}', 'AccountInfoController@destroy');
 
 
 //Register New User
